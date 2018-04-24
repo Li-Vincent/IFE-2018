@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IFE-2018-DAY01</title>
+    <style type="text/css">
+    h1 {
+        /* 设置了字的大小，px是单位，你可以尝试改成其它大小 */
+        font-size: 30px;
+    }
+
+    p {
+        /* 设置了字的颜色，你可以尝试改成yellow */
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>IFE-2018-DAY01</h1>
+    <img src="http://ife.baidu.com/2016/static/img/logo_c9785ff2.png">
+    <p>2018年百度前端技术学院终于开课了！</p>
+    <p>发现2017年结束的时间，就是4月24日,
+        <br/> 而18年开始的时间是4月24日。难道只有我发现了这个秘密吗?
+    </p>
+    <p>新的一期，加油！</p>
+    <button id="btn">点按钮，打个招呼吧</button>
+    <script type="text/javascript">
+    document.getElementById("btn").onclick = function() {
+        // 点按钮后弹出一个文字，你可以尝试改变文字内容
+        alert("相见即是缘分，不如加个联系方式吧！");
+        if (confirm('想关注我吗?')) { 
+        		location = 'http://ife.baidu.com/note/detail/id/229'; 
+        } 
+        else 
+        {
+            if (confirm('确定不关注我吗?')) {
+                alert("再见！! ! 不过你逃不掉的！");
+                location = 'http://ife.baidu.com/note/detail/id/229';
+            } 
+            else 
+            { 
+            		location = 'http://ife.baidu.com/note/detail/id/229';
+            }
+        };
+    }
+    </script>
+</body>
+
+</html>
