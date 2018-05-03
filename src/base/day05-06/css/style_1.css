@@ -16,7 +16,7 @@ span {
 .wrapper {
     border: 1px solid #eee;
     margin: 0 auto;
-    width: 650px;
+    max-width: 650px;
 }
 
 .header {

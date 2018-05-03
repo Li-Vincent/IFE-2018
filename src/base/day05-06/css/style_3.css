@@ -20,7 +20,7 @@ span {
 .wrapper {
     border: 1px solid #eee;
     margin: 0 auto;
-    width: 650px;
+    max-width: 650px;
 }
 
 .header {
@@ -35,15 +35,17 @@ span {
     display: inline-block;
     border: 1px solid #eee;
     border-top: 0;
+    height: 80px;
     width: 100%;
 }
 
 .section-title {
     width: 80px;
-    height: 79px;
-    line-height: 79px;
+    height: 80px;
+    line-height: 80px;
     float: left;
     background-color: #ccc;
+    border-bottom: 1px solid #eee;
 }
 
 .section-content {
