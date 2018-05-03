@@ -6,45 +6,49 @@
     <title>第七天到第八天：学习布局</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/float.css">
 </head>
 
 <body>
-    <div class="layout">
+    <div class="wrapper">
         <div class="title">
             <h1>两栏布局</h1>
         </div>
         <p>Demo1: 实现一个两栏布局，左侧占30%宽度，右侧占70%宽度</p>
-        <div class="demo1">
+        <div class="demo1 layout">
             <div class="left">left: 30%宽度</div>
             <div class="right">right: 70%宽度</div>
         </div>
         <p>Demo2: 实现一个两栏布局，左侧固定宽度，右侧根据浏览器宽度进行自适应变化</p>
-        <div class="demo2">
-            <div class="left">left: 固定宽度200px</div>
+        <div class="demo2 layout">
             <div class="right">right: 宽度自适应</div>
+            <div class="left">left: 固定宽度200px</div>
         </div>
         <p>Demo3: 实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化</p>
-        <div class="demo3">
-            <div class="right">right: 固定宽度200px</div>
+        <div class="demo3 layout">
             <div class="left">left: 宽度自适应</div>
+            <div class="right">right: 固定宽度200px</div>
         </div>
     </div>
-    <div class="layout">
+    <div class="wrapper">
         <div class="title">
             <h1>三栏布局</h1>
         </div>
         <p>Demo4: 实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</p>
-        <div class="demo4">
+        <div class="demo4 layout">
+            <div class="center">
+                <div class="container">center: 宽度自适应</div>
+            </div>
             <div class="left">left: 固定宽度150px</div>
-            <div class="center">center: 宽度自适应</div>
             <div class="right">right: 固定宽度150px</div>
         </div>
         <p>Demo5: 实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化</p>
-        <div class="demo5">
+        <div class="demo5 layout">
             <div class="left">left: 固定宽度150px</div>
             <div class="center">center: 固定宽度150px</div>
-            <div class="right">right: 宽度自适应</div>
+            <div class="right">
+                <div class="container">right: 宽度自适应</div>
+            </div>
         </div>
     </div>
 </body>
