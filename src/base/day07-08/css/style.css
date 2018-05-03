@@ -1,0 +1,78 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.demo1, .demo2, .demo3, .demo4, .demo5 {
+    max-width: 800px;
+    height: 100px;
+    margin-left: 30px;
+    color: #fff;
+    clear: both;
+}
+
+.left {
+    height: 100%;
+    background-color: blue;
+}
+
+.right {
+    height: 100%;
+    background-color: green;
+}
+
+.center {
+    height: 100%;
+    background-color: red;
+}
+
+.demo1 .left {
+    width: 30%;
+    float: left;
+}
+
+.demo1 .right {
+    width: 70%;
+    float: left;
+}
+
+.demo2 .left {
+    width: 200px;
+    float: left;
+}
+
+.demo2 .right {
+    width: calc(100% - 200px);
+    float: left;
+}
+
+.demo3 .left {
+    width: calc(100% - 200px);
+    float: right;
+}
+
+.demo3 .right {
+    width: 200px;
+    float: right;
+}
+
+.demo4 .left {
+    width: 150px;
+    float: left;
+}
+
+.demo4 .center {
+    width: calc(100% - 300px);
+    float: left;
+}
+
+.demo4 .right {
+    clear: both;
+    width: 150px;
+    float: right;
+}
+
+.demo5 .left{
+    
+}
