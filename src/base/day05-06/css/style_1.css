@@ -1,0 +1,42 @@
+body {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+span {
+    color: #222;
+    font-weight: normal;
+}
+
+.wrapper {
+    border: 1px solid #eee;
+    margin: 0 auto;
+    width: 650px;
+}
+
+.header {
+    padding: 0 10px;
+}
+
+.main {
+    padding: 0 10px;
+}
+
+.basic-info>p, .contact>p {
+    display: inline;
+    margin-right: 30px;
+}
+
+.basic-info span, .contact span {
+    padding-left: 10px;
+}
+
+.tech span, .edu span, .project span {
+    display: block;
+    padding-top: 5px;
+}
