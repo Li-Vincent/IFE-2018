@@ -6,51 +6,90 @@
     <title>第七天到第八天：学习布局</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/float.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="title">
-            <h1>两栏布局</h1>
-        </div>
-        <p>Demo1: 实现一个两栏布局，左侧占30%宽度，右侧占70%宽度</p>
-        <div class="demo1 layout">
-            <div class="left">left: 30%宽度</div>
-            <div class="right">right: 70%宽度</div>
-        </div>
-        <p>Demo2: 实现一个两栏布局，左侧固定宽度，右侧根据浏览器宽度进行自适应变化</p>
-        <div class="demo2 layout">
-            <div class="right">right: 宽度自适应</div>
-            <div class="left">left: 固定宽度200px</div>
-        </div>
-        <p>Demo3: 实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化</p>
-        <div class="demo3 layout">
-            <div class="left">left: 宽度自适应</div>
-            <div class="right">right: 固定宽度200px</div>
-        </div>
-    </div>
-    <div class="wrapper">
-        <div class="title">
-            <h1>三栏布局</h1>
-        </div>
-        <p>Demo4: 实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</p>
-        <div class="demo4 layout">
-            <div class="center">
-                <div class="container">center: 宽度自适应</div>
-            </div>
-            <div class="left">left: 固定宽度150px</div>
-            <div class="right">right: 固定宽度150px</div>
-        </div>
-        <p>Demo5: 实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化</p>
-        <div class="demo5 layout">
-            <div class="left">left: 固定宽度150px</div>
-            <div class="center">center: 固定宽度150px</div>
-            <div class="right">
-                <div class="container">right: 宽度自适应</div>
+    <header>
+        <div class="container">
+            <div class="logo">Logo</div>
+            <div class="user">
+                <ul>
+                    <li>
+                        <a href="#">Github</a>
+                    </li>
+                    <li>
+                        <a href="#">Register</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </header>
+    <div class="banner">
+        <div class="container">
+            <ul class="tabs">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
     </div>
+    <nav>
+        <div class="container">
+            <ul>
+                <li class="active">HOME</li>
+                <li>PROFILE</li>
+                <li>ABOUT</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div id="home" class="container">
+            <div class="content1">HOME - This is Content 1</div>
+            <div class="content2">HOME - MaybeContent 2</div>
+            <div class="content3">HOME - Content 3</div>
+            <div class="content4">HOME - Content 4</div>
+            <div class="content5">HOME - Content 5</div>
+            <div class="content6">HOME - Content 6</div>
+            <div class="content7">HOME - Content 7</div>
+            <div class="content8">HOME - Content 8</div>
+            <div class="content9">HOME - Content 9</div>
+            <div class="content10">HOME - Content 10</div>
+        </div>
+        <div id="profile" class="container">
+            <div class="content1">PROFILE - This is Content 1</div>
+            <div class="content2">PROFILE - MaybeContent 2</div>
+            <div class="content3">PROFILE - Content 3</div>
+            <div class="content4">PROFILE - Content 4</div>
+            <div class="content5">PROFILE - Content 5</div>
+            <div class="content6">PROFILE - Content 6</div>
+            <div class="content7">PROFILE - Content 7</div>
+            <div class="content8">PROFILE - Content 8</div>
+            <div class="content9">PROFILE - Content 9</div>
+            <div class="content10">PROFILE - Content 10</div>
+        </div>
+        <div id="about" class="container">
+            <div class="content1">ABOUT - This is Content 1</div>
+            <div class="content2">ABOUT - MaybeContent 2</div>
+            <div class="content3">ABOUT - Content 3</div>
+            <div class="content4">ABOUT - Content 4</div>
+            <div class="content5">ABOUT - Content 5</div>
+            <div class="content6">ABOUT - Content 6</div>
+            <div class="content7">ABOUT - Content 7</div>
+            <div class="content8">ABOUT - Content 8</div>
+            <div class="content9">ABOUT - Content 9</div>
+            <div class="content10">ABOUT - Content 10</div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>@2018 ife.baidu.com</p>
+        </div>
+    </footer>
 </body>
 
 </html>

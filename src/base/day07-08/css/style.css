@@ -1,0 +1,112 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    color: #fff;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    float: left;
+    font-size: 1.5em;
+}
+
+.user {
+    float: right;
+    padding-top: 0px;
+}
+
+footer {
+    height: 80px;
+    width: 100%;
+    background-color: #666;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.banner {
+    height: 260px;
+    background-color: #6c0;
+}
+
+nav {
+    border-bottom: 1px solid #ccc;
+}
+
+nav .container {
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: -1px;
+    overflow: hidden;
+}
+
+/* nav ul {
+    display: block;
+    height: 40px;
+} */
+
+nav ul li {
+    line-height: 39px;
+    height: 40px;
+    float: left;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+li.active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.main .container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.main .container div {
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+#home, #profile, #about {
+    display: none;
+}

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
@@ -80,7 +80,7 @@ body{
     width: 100%;
 }
 
-.demo4 .center .container {
+.demo4 .container {
     margin: 0 150px;
 }
 
