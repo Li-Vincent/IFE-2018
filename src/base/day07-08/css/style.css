@@ -75,11 +75,6 @@ nav .container {
     overflow: hidden;
 }
 
-/* nav ul {
-    display: block;
-    height: 40px;
-} */
-
 nav ul li {
     line-height: 39px;
     height: 40px;
