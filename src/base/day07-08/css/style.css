@@ -19,10 +19,6 @@ li {
     display: inline;
 }
 
-a {
-    color: #fff;
-}
-
 .container {
     width: 960px;
     margin: 0 auto;
@@ -46,6 +42,10 @@ header {
     padding-top: 0px;
 }
 
+.user a {
+    color: #fff;
+}
+
 footer {
     height: 80px;
     width: 100%;
@@ -60,8 +60,38 @@ footer p {
 }
 
 .banner {
-    height: 260px;
+    height: 230px;
     background-color: #6c0;
+}
+
+.banner .container {
+    height: 100%;
+    position: relative;
+}
+
+.tabs {
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #333;
+}
+
+.tabs li {
+    display: inline-block;
+    padding: 5px 6px;
+    border: 1px solid #333;
+    background-color: #ccc;
+    vertical-align: bottom;
+}
+
+.tabs li.active {
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
 }
 
 nav {
@@ -75,7 +105,7 @@ nav .container {
     overflow: hidden;
 }
 
-nav ul li {
+nav li {
     line-height: 39px;
     height: 40px;
     float: left;
@@ -87,21 +117,33 @@ nav ul li {
     cursor: pointer;
 }
 
-li.active {
+nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav .active {
     background-color: #fff;
     border-bottom-color: #fff;
 }
 
 .main .container {
     margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.main .container div {
+    margin-bottom: 10px;
     display: flex;
-    border: 1px solid #ccc;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
 }
 
-#home, #profile, #about {
+.item {
+    padding: 80px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#profile, #about {
     display: none;
 }
