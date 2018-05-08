@@ -161,6 +161,8 @@
               <br> &emsp;&emsp;
               <span>66666666</span>
             </p>
+            <button id="favor">点开看看我的特殊爱好</button>
+            <p id="favor-info"></p>
           </div>
           <div class="col">
             <h4>向我发送邮件</h4>
@@ -193,8 +195,7 @@
       </footer>
     </div>
     <script>
-      var hour = (new Date()).getHours();
-      var txt;
+      var txt, hour = (new Date()).getHours();
       switch (true) {
         case hour < 6: txt = "凌晨好"; break;
         case hour < 9: txt = "早上好"; break;
@@ -219,6 +220,14 @@
         console.log("姓名：" + name);
         console.log("邮箱：" + email);
         console.log("消息：" + message);
+      }
+      var favorBtn = document.getElementById("favor");
+      favorBtn.addEventListener("click", favorBtnClick, false);
+      function favorBtnClick(e) {
+        var span = document.createElement("span");
+        span.innerHTML = "我的特殊爱好就是在IFE学习前端!";
+        document.getElementById("favor-info").appendChild(span);
+        favorBtn.removeEventListener('click', favorBtnClick, false);
       }
     </script>
 </body>
