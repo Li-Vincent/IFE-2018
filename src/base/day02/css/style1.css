@@ -16,6 +16,7 @@ body {
 
 a {
     color: #ec971f;
+    text-decoration: none;
     background-color: transparent;
 }
 
@@ -28,8 +29,20 @@ a:focus {
     outline: 10px auto -webkit-focus-ring-color;
 }
 
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+        margin: 0 auto;
+    }
+}
+
+header {
+    margin: 20px 0;
+}
+
 nav {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -42,16 +55,40 @@ nav li {
     margin-right: 5px;
 }
 
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-        margin: 0 auto;
-    }
+.item {
+    clear: both;
+    margin-bottom: 10px;
 }
 
-@media (min-width: 992px) {
-    .container {
-        width: 970px;
-        margin: 0 auto;
-    }
+.item .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.row .col {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.skills-layout {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.left, .right {
+    float: left;
+    margin-left: 10px;
+}
+
+.right {
+    margin-top: 20px;
+}
+
+footer {
+    height: 30px;
+    line-height: 30px;
+    background-color: #eee;
+    text-align: center;
 }
