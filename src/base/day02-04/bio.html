@@ -18,7 +18,9 @@
             <small>- 本简历纯属虚构</small>
           </h1>
         </div>
-        <div class="greet">Hi, good <span id="">morning</span>!</div>
+        <div class="greet">Hi,
+          <span id="now">你好!</span>
+        </div>
       </div>
     </header>
     <nav>
@@ -60,7 +62,7 @@
           <div class="col">
             <h4>联系方式</h4>
             <p>QQ：
-              <span>6666666</span>
+              <span>66666666</span>
             </p>
             <p>Blog：
               <span>
@@ -153,19 +155,19 @@
             </p>
             <p>邮箱：
               <br> &emsp;&emsp;
-              <span>630927564@qq.com</span>
+              <span>66666666@qq.com</span>
             </p>
             <p>QQ:
               <br> &emsp;&emsp;
-              <span>630927564</span>
+              <span>66666666</span>
             </p>
           </div>
           <div class="col">
-            <h4>发送邮件</h4>
+            <h4>向我发送邮件</h4>
             <form name="sentMessage" id="contactForm" novalidate>
               <div class="row">
                 <div class="col">
-                  <input type="text" id="name" class="form-control" placeholder="姓名" required="required">
+                  <input type="text" id="name" class="form-control" placeholder="您的称呼" required="required">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="col">
@@ -179,9 +181,7 @@
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              <div id="success">
-                <button type="submit" class="btn btn-default">确认发送</button>
-              </div>
+              <button id="send" type="submit" class="btn btn-default">确认发送</button>
             </form>
           </div>
         </div>
@@ -192,6 +192,35 @@
         </div>
       </footer>
     </div>
+    <script>
+      var hour = (new Date()).getHours();
+      var txt;
+      switch (true) {
+        case hour < 6: txt = "凌晨好"; break;
+        case hour < 9: txt = "早上好"; break;
+        case hour < 12: txt = "上午好！"; break;
+        case hour < 14: txt = "中午好！"; break;
+        case hour < 17: txt = "下午好！"; break;
+        case hour < 19: txt = "傍晚好！"; break;
+        case hour < 22: txt = "晚上好！"; break;
+        default: txt = "夜里好！"; break;
+      }
+      document.getElementById("now").innerHTML = txt;
+
+      document.getElementById("send").onclick = function (e) {
+        if (e.preventDefault) {
+          e.preventDefault();
+        } else {
+          window.event.returnValue = false;
+        }
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+        console.log("姓名：" + name);
+        console.log("邮箱：" + email);
+        console.log("消息：" + message);
+      }
+    </script>
 </body>
 
 </html>
