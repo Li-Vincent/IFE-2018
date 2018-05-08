@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人简历</title>
+  <meta name="description" content="个人简历">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <div class="title">
+          <h1>个人简历
+            <small>- 本简历纯属虚构</small>
+          </h1>
+        </div>
+        <div class="greet">Hi, good <span id="">morning</span>!</div>
+      </div>
+    </header>
+    <nav>
+      <div class="container">
+        <ul>
+          <li>
+            <a href="#basic-info">基本资料</a>
+          </li>
+          <li>
+            <a href="#skills">专业技能</a>
+          </li>
+          <li>
+            <a href="#exp">项目经验</a>
+          </li>
+          <li>
+            <a href="#self-appraisal">自我评价</a>
+          </li>
+          <li>
+            <a href="#contact">联系方式</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+      <div id="basic-info" class="item container">
+        <div class="item-title">
+          <h3>基本资料</h3>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>个人信息</h4>
+            <p>姓名：
+              <span>Vincent-Lee</span>
+            </p>
+            <p>年龄：
+              <span>24</span>
+            </p>
+          </div>
+          <div class="col">
+            <h4>联系方式</h4>
+            <p>QQ：
+              <span>6666666</span>
+            </p>
+            <p>Blog：
+              <span>
+                <a href="http://www.cnblogs.com/vincent-li666/">我的博客</a>
+              </span>
+            </p>
+          </div>
+          <div class="col">
+            <h4>学历信息</h4>
+            <p>学校：
+              <span>IFE</span>
+            </p>
+            <p>学历：
+              <span>本科</span>
+            </p>
+          </div>
+          <div class="col">
+            <h4>专业方向</h4>
+            <p>专业：
+              <span>CS </span>
+            </p>
+            <p>方向：
+              <span>Frontend</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="exp" class="item container">
+        <div class="item-title">
+          <h3>项目经验</h3>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div>
+              <span>
+                <a href='#' target='_blank' title="某电商网站">某电商网站</a>
+              </span>
+              <small>技术：html+css+js</small>
+            </div>
+            <img src="./img/cat.jpg" class="img-responsive" width="300px" alt="某电商网站">
+          </div>
+          <div class="col">
+            <div>
+              <span>
+                <a href='#' target='_blank' title="某电商网站">某电商网站</a>
+              </span>
+              <small>技术：html+css+js</small>
+            </div>
+            <img src="./img/cat.jpg" class="img-responsive" width="300px" alt="某电商网站">
+          </div>
+        </div>
+      </div>
+      <div id="skills" class="item container">
+        <div class="item-title">
+          <h3>专业技能</h3>
+        </div>
+        <div class="float-layout">
+          <div class="left">
+            <img src="./img/skills_img.jpg" width="300px">
+          </div>
+          <div class="right">
+            <div class="">
+              <h4>前端</h4>
+              <p>&emsp;&emsp;熟练使用HTML/CSS技术，精通Javascript/jquery编程,
+                <br>&emsp;&emsp;能够熟练使用Vue.js，了解less，sass等前端新技术
+              </p>
+            </div>
+            <div class="">
+              <h4>后端</h4>
+              <p>&emsp;&emsp;精通PHP和MVC模式，熟悉常用数据库（MySQL，Oracle）
+              </p>
+            </div>
+            <div class="">
+              <h4>其它</h4>
+              <p>&emsp;&emsp;懂网站性能优化，网站百度排名和SEO优化
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="item container">
+        <div class="item-title">
+          <h3>Contact Me</h3>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>地址：
+              <br> &emsp;&emsp;
+              <span>宇宙银河系太阳系</span>
+            </p>
+            <p>邮箱：
+              <br> &emsp;&emsp;
+              <span>630927564@qq.com</span>
+            </p>
+            <p>QQ:
+              <br> &emsp;&emsp;
+              <span>630927564</span>
+            </p>
+          </div>
+          <div class="col">
+            <h4>发送邮件</h4>
+            <form name="sentMessage" id="contactForm" novalidate>
+              <div class="row">
+                <div class="col">
+                  <input type="text" id="name" class="form-control" placeholder="姓名" required="required">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col">
+                  <input type="email" id="email" class="form-control" placeholder="邮箱" required="required">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <textarea name="message" id="message" class="form-control" rows="4" cols="50" placeholder="内容" required></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div id="success">
+                <button type="submit" class="btn btn-default">确认发送</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <p>Copyright &copy; 2018 作者：Vincent-Li. </p>
+        </div>
+      </footer>
+    </div>
+</body>
+
+</html>
