@@ -30,19 +30,39 @@ a:focus {
 }
 
 @media (min-width: 768px) {
-    .container {
+    .wrapper {
         width: 750px;
         margin: 0 auto;
     }
 }
 
+.wrapper {
+    border: 1px solid #eee;
+}
+
+.container {
+    margin: 0 10px;
+}
+
 header {
-    margin: 20px 0;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+header .title {
+    float: left;
+}
+
+header .greet {
+    float: right;
+    background-color: #cfe;
+    padding: 10px;
 }
 
 nav {
-    width: 100%;
-    margin-bottom: 20px;
+    clear: both;
+    margin: 10px 0;
 }
 
 nav ul {
