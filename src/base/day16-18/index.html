@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        td {
+            border: 1px solid #96c;
+        }
+
+        td {
+            width: 20px;
+        }
+
+        .task {
+            padding: 20px;
+            border: 2px solid #59f;
+            margin-top: -2px;
+        }
+
+        .container {
+            margin: 0 auto;
+            margin-top: 30px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>第十七天到第十八天，“如果”可以“重来”</h1>
+        <div id="calculator" class="task">
+            <p>Task1: 简易计算器</p>
+            <input id="first-number" type="number" value="0" placeholder="第一个数字">
+            <input id="second-number" type="number" value="0" placeholder="第二个数字">
+            <button id="add-btn" class="operate-btn">加</button>
+            <button id="minus-btn" class="operate-btn">减</button>
+            <button id="times-btn" class="operate-btn">乘</button>
+            <button id="divide-btn" class="operate-btn">除</button>
+            <p id="result-cal">运算结果</p>
+        </div>
+        <div id="dec2bin" class="task">
+            <p>Task2: 十进制转二进制</p>
+            <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+            <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+            <button id="trans-btn">转化为二进制</button>
+            <p id="result-bin">运算结果</p>
+        </div>
+        <div id="game" class="task">
+            <p>Task3: 3的小游戏</p>
+            请按F12打开console，然后点击执行按钮
+            <button id="game-btn">执行</button>
+        </div>
+        <div id="multi" class="task">
+            <p>Task4: 九九乘法表</p>
+            <button id="multi-btn">执行</button>
+            <div id="multi-container">
+            </div>
+        </div>
+    </div>
+    <script>
+        // Task1: 简易计算器
+        var firstNum = document.getElementById("first-number");
+        var secondNum = document.getElementById("second-number");
+        var operateBtns = document.getElementsByClassName("operate-btn");
+        var resultCal = document.getElementById("result-cal");
+
+        Array.from(operateBtns).forEach(element => {
+            element.onclick = function () {
+                resultCal.innerHTML = "运算结果：" + operate(this.id);
+            }
+        });
+        function operate(id) {
+            var result;
+            if (id == "add-btn") {
+                result = Number(firstNum.value) + Number(secondNum.value);
+            } else if (id == "minus-btn") {
+                result = Number(firstNum.value) - Number(secondNum.value);
+            } else if (id == "times-btn") {
+                result = Number(firstNum.value) * Number(secondNum.value);
+            } else if (id == "divide-btn") {
+                if (Number(secondNum.value) == 0) {
+                    return "输入错误！分母不能为0";
+                }
+                result = Number(firstNum.value) / Number(secondNum.value);
+            }
+            return result.toFixed(4);
+        }
+
+        // Task2: 十进制转二进制
+        var resultBin = document.getElementById("result-bin");
+        var decNum = document.getElementById("dec-number");
+        var bitNum = document.getElementById("bin-bit");
+        var transBtn = document.getElementById("trans-btn");
+        transBtn.onclick = function () {
+            resultBin.innerHTML = "运算结果:" + dec2bin(decNum.value);
+        }
+
+        function dec2bin(decNumber) {
+            var reg = /^\d+$/;
+            if (decNumber == "" || bitNum.value == "") {
+                return "请输入要转换的数字和二进制位数！";
+            }
+            if (!reg.test(decNumber) || !reg.test(bitNum)) {
+                return "请输入一个非负整数";
+            }
+            var temp = decNumber;
+            var arr = new Array();
+            for (var i = 0; 1; i++) {
+                if (temp / 2 >= 1) {
+                    arr[i] = temp % 2;
+                    temp = parseInt(temp / 2);
+                }
+                else {
+                    arr[i] = temp % 2;
+                    break;
+                }
+            }
+            for (; i < bitNum.value - 1; i++) {
+                arr[i + 1] = 0;
+            }
+            if (i >= bitNum.value) {
+                console.error("转换后的二进制位数大于输入的二进制位数。");
+            }
+            var binNum = "";
+            for (i = arr.length; i > 0; i--) {
+                binNum += arr[i - 1];
+            }
+            return binNum;
+        }
+
+        // Task3: 3的小游戏
+        document.getElementById("game-btn").onclick = function () {
+            var str = "";
+            for (var i = 1; i <= 100; i++) {
+                if (i % 3 == 0 || i.toString().indexOf("3") > 0) {
+                    str += "PA  ";
+                } else if (i < 10) {
+                    str += i + "   ";
+                } else {
+                    str += i + "  ";
+                }
+                if (i % 10 == 0) {
+                    str += "\n";
+                }
+            }
+            console.log(str);
+        };
+
+        // Task4: 九九乘法表
+        var multiBtn = document.getElementById("multi-btn");
+        multiBtn.addEventListener('click', print99Multi, false);
+
+        function print99Multi() {
+            var tableContainer = document.createElement("table");
+            for (var i = 1; i < 10; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 1; j <= i; j++) {
+                    var td = document.createElement("td");
+                    td.innerHTML = i + "*" + j + "=" + i * j;
+                    tr.appendChild(td);
+                }
+                tableContainer.appendChild(tr);
+            }
+            document.getElementById("multi-container").appendChild(tableContainer);
+            // 使点击事件只执行一次
+            multiBtn.removeEventListener('click', print99Multi, false);
+        };
+    </script>
+</body>
+
+</html>
