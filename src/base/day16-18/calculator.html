@@ -15,29 +15,30 @@
     <button id="divide-btn">除</button>
     <p id="result">运算结果</p>
     <script>
-        document.getElementById("add-btn").onclick = function () {
-            var num1 = document.getElementById("first-number").value;
-            var num2 = document.getElementById("second-number").value;
-            var result = Number(num1) + Number(num2);
-            document.getElementById("result").innerHTML = '运算结果: ' + result.toFixed(4);
-        }
-        document.getElementById("minus-btn").onclick = function () {
-            var num1 = document.getElementById("first-number").value;
-            var num2 = document.getElementById("second-number").value;
-            var result = Number(num1) - Number(num2);
-            document.getElementById("result").innerHTML = '运算结果: ' + result.toFixed(4);
-        }
-        document.getElementById("times-btn").onclick = function () {
-            var num1 = document.getElementById("first-number").value;
-            var num2 = document.getElementById("second-number").value;
-            var result = Number(num1) * Number(num2);
-            document.getElementById("result").innerHTML = '运算结果: ' + result.toFixed(4);
-        }
-        document.getElementById("divide-btn").onclick = function () {
-            var num1 = document.getElementById("first-number").value;
-            var num2 = document.getElementById("second-number").value;
-            var result = Number(num1) / Number(num2);
-            document.getElementById("result").innerHTML = '运算结果: ' + result.toFixed(4);
+        var firstNum = document.getElementById("first-number");
+        var secondNum = document.getElementById("second-number");
+        var operateBtns = document.getElementsByTagName("button");
+        var result = document.getElementById("result");
+
+        Array.from(operateBtns).forEach(element => {
+            element.onclick = function () {
+                result.innerHTML = "运算结果：" + operate(this.id).toFixed(4);
+            }
+        });
+        function operate(id) {
+            if (id == "add-btn") {
+                return Number(firstNum.value) + Number(secondNum.value);
+            } else if (id == "minus-btn") {
+                return Number(firstNum.value) - Number(secondNum.value);
+            } else if (id == "times-btn") {
+                return Number(firstNum.value) * Number(secondNum.value);
+            } else if (id == "divide-btn") {
+                if (Number(secondNum.value) == 0) {
+                    alert("分母不能为0");
+                    return "输入错误！";
+                }
+                return Number(firstNum.value) / Number(secondNum.value);
+            }
         }
     </script>
 </body>
