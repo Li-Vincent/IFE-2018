@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li>
+                        <span>HTML</span>
+                        <a href="">Some Link1</a>
+                    </li>
+                    <li>
+                        <span>JS</span>
+                        <a class="active" href="">Some Link2</a>
+                    </li>
+                    <li>
+                        <span>CSS</span>
+                        <a href="">Some Link3</a>
+                    </li>
+                    <li>
+                        <span>JS</span>
+                        <a href="">Some Link4</a>
+                    </li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li>
+                        <span>HTML</span>
+                        <a href="">Some Link1</a>
+                    </li>
+                    <li>
+                        <span>HTML</span>
+                        <a href="">Some Link2</a>
+                    </li>
+                    <li>
+                        <span>JS</span>
+                        <a class="active" href="#">Some Link3</a>
+                    </li>
+                    <li>
+                        <span>CSS</span>
+                        <a href="">Some Link4</a>
+                    </li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+    </div>
+    <script>
+
+        var t = findAllHtmlSpanInOneSection("news-normal");
+        function getAllListItem() {
+            // 返回页面中所有li标签
+            return document.querySelectorAll("li");
+        }
+
+        function findAllHtmlSpanInOneSection(sectionId) {
+            // 返回某个section下所有span中内容为HTML的span标签
+            var spanList = document.querySelectorAll("#" + sectionId + " span");
+            var target = new Array();
+            Array.from(spanList).forEach(function (element) {
+                if (element.textContent == "HTML") {
+                    target.push(element)
+                }
+            })
+            return target;
+        }
+
+        function findListItem(sectionId, spanCont) {
+            // 返回某个section下，所有所包含span内容为spanCont的LI标签
+            var liList = document.querySelectorAll("#" + sectionId + " li");
+            var target = new Array();
+            Array.from(liList).forEach(function (element) {
+                var spanInLiList = element.querySelector("span");
+                if (spanInLiList.textContent == spanCont) {
+                    target.push(element);
+                }
+            });
+            return target;
+        }
+
+        function getActiveLinkContent(sectionId) {
+            // 返回某个section下，class为active的链接中包含的文字内容
+            var link = document.querySelector("#" + sectionId + " a.active");
+            return link.textContent;
+        }
+
+    </script>
+</body>
+
+</html>
