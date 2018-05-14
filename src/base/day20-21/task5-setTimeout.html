@@ -23,14 +23,13 @@
             if (fadeBtn.innerHTML == "淡出") {
                 console.log("淡出");
                 fadeBtn.setAttribute("disabled", "disabled");
-                fadeOut(fadeObj, 10);
-                operate = setInterval("fadeOut(fadeObj,10)", 1000);
+                fadeOut(fadeObj, 2);
+                operate = setTimeout("fade()", 100);
             }
             if (fadeBtn.innerHTML == "淡入") {
-                console.log("淡入");
                 fadeBtn.setAttribute("disabled", "disabled");
-                fadeIn(fadeObj, 10);
-                operate = setInterval("fadeIn(fadeObj,10)", 1000);
+                fadeIn(fadeObj, 2);
+                operate = setTimeout("fade()", 100);
             }
         }
 
@@ -40,8 +39,7 @@
                 setOpacity(ele, opacity);
             }
             if (opacity == 0) {
-                clearInterval(operate);
-                
+                clearTimeout(operate);
                 fadeBtn.innerHTML = "淡入";
                 fadeBtn.removeAttribute("disabled");
             }
@@ -53,19 +51,19 @@
                 setOpacity(ele, opacity);
             }
             if (opacity == 100) {
-                clearInterval(operate);
+                clearTimeout(operate);
                 fadeBtn.innerHTML = "淡出";
                 fadeBtn.removeAttribute("disabled");
             }
         }
 
-        function setOpacity(ele, opacity) {
+        function setOpacity(ele, opacityP) {
             if (ele.style.opacity != undefined) {
                 ///兼容FF和GG和新版本IE
-                ele.style.opacity = opacity / 100;
+                ele.style.opacity = opacityP / 100;
             } else {
                 ///兼容老版本ie
-                ele.style.filter = "alpha(opacity=" + opacity + ")";
+                ele.style.filter = "alpha(opacity=" + opacityP + ")";
             }
         }
     </script>
