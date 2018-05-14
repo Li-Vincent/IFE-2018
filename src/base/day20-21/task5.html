@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var fadeObj = document.querySelector("#fade-obj");
+        var fadeBtn = document.querySelector("#fade-btn");
+        var opacity = 100;
+        var operate = null;
+        fadeBtn.addEventListener("click", fade);
+
+        function fade() {
+            console.log("in fade");
+            if (fadeBtn.innerHTML == "淡出") {
+                console.log("淡出");
+                fadeBtn.setAttribute("disabled", "disabled");
+                fadeOut(fadeObj, 10);
+                operate = setTimeout("fade()", 1000);
+            }
+            if (fadeBtn.innerHTML == "淡入") {
+                fadeBtn.setAttribute("disabled", "disabled");
+                fadeIn(fadeObj, 10);
+                operate = setTimeout("fade()", 1000);
+            }
+        }
+
+        function fadeOut(ele, speed) {
+            if (opacity > 0) {
+                opacity -= speed;
+                setOpacity(ele, opacity);
+            }
+            if (!opacity) {
+                clearTimeout(operate);
+                fadeBtn.innerHTML = "淡入";
+                fadeBtn.removeAttribute("disabled");
+            }
+        }
+
+        function fadeIn(ele, speed) {
+            if (opacity <= 100) {
+                opacity += speed;
+                setOpacity(ele, opacity);
+            }
+            if (opacity == 100) {
+                clearTimeout(operate);
+                fadeBtn.innerHTML = "淡出";
+                fadeBtn.removeAttribute("disabled");
+            }
+        }
+
+        function setOpacity(ele, opacityP) {
+            if (ele.style.opacity != undefined) {
+                ///兼容FF和GG和新版本IE
+                ele.style.opacity = opacityP / 100;
+            } else {
+                ///兼容老版本ie
+                ele.style.filter = "alpha(opacity=" + opacityP + ")";
+            }
+        }
+    </script>
+</body>
+
+</html>
