@@ -16,20 +16,23 @@
         var fadeBtn = document.querySelector("#fade-btn");
         var opacity = 100;
         var operate = null;
+        var flag = 0;
         fadeBtn.addEventListener("click", fade);
 
         function fade() {
             console.log("in fade");
-            if (fadeBtn.innerHTML == "淡出") {
-                console.log("淡出");
-                fadeBtn.setAttribute("disabled", "disabled");
-                fadeOut(fadeObj, 2);
-                operate = setTimeout("fade()", 100);
-            }
-            if (fadeBtn.innerHTML == "淡入") {
-                fadeBtn.setAttribute("disabled", "disabled");
-                fadeIn(fadeObj, 2);
-                operate = setTimeout("fade()", 100);
+            if (flag = 0) {
+                if (fadeBtn.innerHTML == "淡出") {
+                    console.log("淡出");
+                    fadeBtn.setAttribute("disabled", "disabled");
+                    fadeOut(fadeObj, 2);
+                    operate = setTimeout("fade()", 100);
+                }
+                if (fadeBtn.innerHTML == "淡入") {
+                    fadeBtn.setAttribute("disabled", "disabled");
+                    fadeIn(fadeObj, 2);
+                    operate = setTimeout("fade()", 100);
+                }
             }
         }
 
