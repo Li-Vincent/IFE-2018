@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript-Erik笑容的动画</title>
+    <style>
+        .container {
+            width: 480px;
+            height: 480px;
+            margin: 0 auto;
+            background-image: url(erik_ce204002.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Sprite - 实现IFE2016中Erik笑容的动画</h1>
+    <div class="container">
+    </div>
+    <script>
+        var imgContainer = document.querySelector("div");
+        var sprite = setInterval("changeY()", 100);
+        var i = 0;
+        var flag = 0;
+        function changeY() {
+            if (flag == 0) {
+                if (i < 16) {
+                    i++;
+                    imgContainer.style.backgroundPositionY = -480 * i + "px";
+                } else {
+                    flag = 1;
+                }
+            } else if (flag == 1) {
+                if (i > 0) {
+                    i--;
+                    imgContainer.style.backgroundPositionY = -480 * i + "px";
+                } else {
+                    flag = 0;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
