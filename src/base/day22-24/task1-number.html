@@ -22,33 +22,20 @@
     <div>
         <button onclick="checkSelect()">判断当前选中的输入框输入内容是否为数字</button>
         <button onclick="roundFloat()">把 A 四舍五入为 B 个小数位数的数字</button>
-        <button>当前选中数字的绝对值</button>
-        <button>对当前选中的数字进行上舍入</button>
-        <button>对当前选中的数字进行下舍入</button>
-        <button>把当前选中的数字四舍五入为最接近的整数</button>
-        <button>返回 A 和 B 中的最高值</button>
-        <button>返回 A 和 B 中的最低值</button>
+        <button onclick="absSelect()">当前选中数字的绝对值</button>
+        <button onclick="ceilSelect()">对当前选中的数字进行上舍入</button>
+        <button onclick="floorSelect()">对当前选中的数字进行下舍入</button>
+        <button onclick="roundInt()">把当前选中的数字四舍五入为最接近的整数</button>
+        <button onclick="maxNum()">返回 A 和 B 中的最高值</button>
+        <button onclick="minNum()">返回 A 和 B 中的最低值</button>
     </div>
     <p id="result"></p>
     <script>
         var numA = document.querySelector("#num-a");
         var numB = document.querySelector("#num-b");
-        var result = document.querySelector("result");
+        var result = document.querySelector("#result");
 
-        function roundFloat() {
-            if (!checkNumA()) {
-                result.innerHTML = "A 不是数字类型";
-                return false;
-            }
-            if (!checkNumB()) {
-                result.innerHTML = "B 不是数字类型";
-                return false;
-            }
-            if (parseInt(numB.value, 10) !== numB.value) {
-                result.innerHTML = "B 应该是非负整数";
-            }
-        }
-
+        // 判断当前选中的输入框输入内容是否为数字
         function checkSelect() {
             var radio = document.getElementsByName("math-obj");
             var radioValue;
@@ -58,11 +45,88 @@
                 }
             }
             if (radioValue == "a") {
-                checkNumA();
+                if (!checkNumA()) {
+                    result.innerHTML = "A 不是数字类型";
+                    return false;
+                };
+                return numA.value;
             }
             if (radioValue == "b") {
-                checkNumB();
+                if (!checkNumB()) {
+                    result.innerHTML = "B 不是数字类型";
+                    return false;
+                };
+                return numB.value;
             }
+        }
+
+        // 把 A 四舍五入为 B 个小数位数的数字
+        function roundFloat() {
+            result.innerHTML = "";
+            if (!checkNumA()) {
+                result.innerHTML += "A 不是数字类型 ";
+            } else if (!checkNumB()) {
+                result.innerHTML += "B 不是数字类型 ";
+            } else if (parseInt(numB.value, 10) != numB.value || numB.value < 0) {
+                result.innerHTML += "B 应该是非负整数   ";
+            } else {
+                console.log("round");
+                result.innerHTML = roundNum(numA.value, numB.value);
+            }
+        }
+
+        // 当前选中数字的绝对值
+        function absSelect() {
+            var val = checkSelect();
+            if (val) {
+                result.innerHTML = Math.abs(val);
+            }
+        }
+
+        // 对当前选中的数字进行上舍入
+        function ceilSelect() {
+            var val = checkSelect();
+            if (val) {
+                result.innerHTML = Math.ceil(val);
+            }
+        }
+
+        // 对当前选中的数字进行下舍入
+        function floorSelect() {
+            var val = checkSelect();
+            if (val) {
+                result.innerHTML = Math.floor(val);
+            }
+        }
+
+        // 把当前选中的数字四舍五入为最接近的整数
+        function roundInt() {
+            var val = checkSelect();
+            if (val) {
+                result.innerHTML = Math.round(val);
+            }
+        }
+
+        // 返回 A 和 B 中的最高值
+        function maxNum() {
+            result.innerHTML = "";
+            if (!checkNumA()) {
+                result.innerHTML += "A 不是数字类型 ";
+            } else if (!checkNumB()) {
+                result.innerHTML += "B 不是数字类型 ";
+            }
+            result.innerHTML = "最高值为：" + Math.max(numA.value, numB.value);
+        }
+
+        // 返回 A 和 B 中的最低值
+        function minNum() {
+            result.innerHTML = "";
+            if (!checkNumA()) {
+                result.innerHTML += "A 不是数字类型 ";
+            } else if (!checkNumB()) {
+                result.innerHTML += "B 不是数字类型 ";
+            }
+            result.innerHTML = "最低值为：" + Math.min(numA.value, numB.value);
         }
 
         function checkNumA() {
@@ -70,6 +134,7 @@
                 console.log("Number A 应该为数字类型");
                 return false;
             }
+            return true;
         }
 
         function checkNumB() {
@@ -77,6 +142,7 @@
                 console.log("Number B 应该为数字类型");
                 return false;
             }
+            return true;
         }
 
         function isRealNum(val) {
@@ -89,6 +155,11 @@
             } else {
                 return false;
             }
+        }
+
+        function roundNum(num, n) {
+            var val = Math.round(num * Math.pow(10, n)) / Math.pow(10, n);
+            return val;
         }
     </script>
 </body>
