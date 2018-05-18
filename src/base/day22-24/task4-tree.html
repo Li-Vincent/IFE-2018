@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - 二叉树</title>
+</head>
+
+<body>
+    <div id="nameById">
+        <h2>根据Id查找Name</h2>
+        <label>Id:
+            <input type="text" id="id">
+        </label>
+        <button id="submitId">查找</button>
+        <span id="nameResult"></span>
+    </div>
+    <div id="idByName">
+        <h2>根据Name查找Id</h2>
+        <label>Name:
+            <input type="text" id="name">
+        </label>
+        <button id="submitName">查找</button>
+        <span id="idResult"></span>
+    </div>
+    <div id="pre">
+        <h2>先序遍历</h2>
+    </div>
+    <div id="post">
+        <h2>后序遍历</h2>
+    </div>
+    <div id="mid">
+        <h2>中序遍历</h2>
+    </div>
+    <script>
+        var tree = {
+            "id": 0,
+            "name": "root",
+            "left": {
+                "id": 1,
+                "name": "Simon",
+                "left": {
+                    "id": 3,
+                    "name": "Carl3",
+                    "left": {
+                        "id": 7,
+                        "name": "Lee",
+                        "left": {
+                            "id": 11,
+                            "name": "Fate"
+                        }
+                    },
+                    "right": {
+                        "id": 8,
+                        "name": "Annie",
+                        "left": {
+                            "id": 12,
+                            "name": "Saber"
+                        }
+                    }
+                },
+                "right": {
+                    "id": 4,
+                    "name": "Tony",
+                    "left": {
+                        "id": 9,
+                        "name": "Candy"
+                    }
+                }
+            },
+            "right": {
+                "id": 2,
+                "name": "right",
+                "left": {
+                    "id": 5,
+                    "name": "Carl5",
+                },
+                "right": {
+                    "id": 6,
+                    "name": "Carl6",
+                    "right": {
+                        "id": 10,
+                        "name": "Kai"
+                    }
+                }
+            }
+        }
+
+        // 假设id和name均不会重复，根据输入name找到对应的id
+        function findIdByName(name) {
+            return findIdByNameBase(tree, name);
+        }
+
+        // 假设id和name均不会重复，根据输入id找到对应的name
+        function findNameById(id) {
+            return findNameByIdBase(tree, id);
+        }
+
+        // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+        function getListWithDLR() {
+            return preOrder(tree);
+        }
+
+        // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+        function getListWithLDR() {
+            return midOrder(tree);
+        }
+
+        // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+        function getListWithLRD() {
+            return postOrder(tree);
+        }
+
+        // 根据name查找id
+        var resultId = "";
+        var findIdByNameBase = function (node, name) {
+            if (node) {
+                if (node.name == name) {
+                    resultId = node.id;
+                    console.log(resultId);
+                }
+                if (node.left) {
+                    findIdByNameBase(node.left, name);
+                }
+                if (node.right) {
+                    findIdByNameBase(node.right, name);
+                }
+            }
+        }
+
+        // 根据id查找name
+        var resultName = "";
+        var findNameByIdBase = function (node, id) {
+            if (node) {
+                if (node.id == id) {
+                    resultName = node.name;
+                }
+                if (node.left) {
+                    findNameByIdBase(node.left, id);
+                }
+                if (node.right) {
+                    findNameByIdBase(node.right, id);
+                }
+            }
+        }
+        //先序遍历  
+        var preOrder = function (node) {
+            if (node) {
+                var ul = document.createElement("ul");
+                var li1 = document.createElement("li");
+                li1.innerText = "id:" + node.id + ", name:" + node.name;
+                ul.appendChild(li1);
+                console.log(node.id, node.name);
+                if (node.left) {
+                    var li2 = document.createElement("li");
+                    li2.appendChild(preOrder(node.left));
+                    ul.appendChild(li2);
+                }
+                if (node.right) {
+                    var li3 = document.createElement("li");
+                    li3.appendChild(preOrder(node.right));
+                    ul.appendChild(li3);
+                }
+                return ul;
+            } else {
+                return;
+            }
+        }
+        // 后序遍历
+        var postOrder = function (node) {
+            if (node) {
+                var ul = document.createElement("ul");
+                if (node.left) {
+                    var li2 = document.createElement("li");
+                    li2.appendChild(postOrder(node.left));
+                    ul.appendChild(li2);
+                }
+                if (node.right) {
+                    var li3 = document.createElement("li");
+                    li3.appendChild(postOrder(node.right));
+                    ul.appendChild(li3);
+                }
+                var li1 = document.createElement("li");
+                li1.innerText = "id:" + node.id + ", name:" + node.name;
+                ul.appendChild(li1);
+                console.log(node.id, node.name);
+                return ul;
+            } else {
+                return;
+            }
+        }
+        // 中序遍历
+        var midOrder = function (node) {
+            if (node) {
+                var ul = document.createElement("ul");
+                if (node.left) {
+                    var li2 = document.createElement("li");
+                    li2.appendChild(midOrder(node.left));
+                    ul.appendChild(li2);
+                }
+                var li1 = document.createElement("li");
+                li1.innerText = "id:" + node.id + ", name:" + node.name;
+                ul.appendChild(li1);
+                console.log(node.id, node.name);
+                if (node.right) {
+                    var li3 = document.createElement("li");
+                    li3.appendChild(midOrder(node.right));
+                    ul.appendChild(li3);
+                }
+                return ul;
+            } else {
+                return;
+            }
+        }
+
+        var idInput = document.querySelector("#id");
+        var idBtn = document.querySelector("#submitId");
+        var idResult = document.querySelector("#idResult");
+        var nameInput = document.querySelector("#name");
+        var nameBtn = document.querySelector("#submitName");
+        var nameResult = document.querySelector("#nameResult");
+
+        nameBtn.onclick = function () {
+            resultId = "";
+            findIdByName(nameInput.value);
+            if (resultId === "") {
+                resultId = "not found";
+            }
+            console.log("假设id和name均不会重复，根据输入name = " + nameInput.value + ",找到对应的id为：" + resultId);
+            idResult.innerText = resultId;
+        };
+        idBtn.onclick = function () {
+            resultName = "";
+            findNameById(idInput.value);
+            if (resultName === "") {
+                resultName = "not found";
+            }
+            console.log("假设id和name均不会重复，根据输入id = " + idInput.value + ",找到对应的name为：" + resultName);
+            nameResult.innerText = resultName;
+        };
+
+        console.log("先序遍历 ：");
+        var preUl = getListWithDLR();
+        document.querySelector("#pre").appendChild(preUl);
+
+        // console.log("后序遍历 ：");
+        // var postUl = getListWithLRD();
+        // document.querySelector("#post").appendChild(postUl);
+
+        // console.log("中序遍历 ：");
+        // var midUl = getListWithLDR();
+        // document.querySelector("#mid").appendChild(midUl);
+
+        // refer to: https://blog.csdn.net/Elliotbaird/article/details/79145862
+    </script>
+</body>
+
+</html>
