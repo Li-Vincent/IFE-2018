@@ -17,11 +17,42 @@
     <button id="empty-btn">判断队列是否为空</button>
 
     <script>
-
         var queue = ["apple", "pear"];
+        var queueCont = document.querySelector("#queue-cont");
+        var queueInput = document.querySelector("#queue-input");
 
-        
-
+        // 队头对应数组中最后一个元素
+        document.querySelector("#in-btn").onclick = function () {
+            if (queueInput.value) {
+                queue.unshift(queueInput.value);
+            } else {
+                alert("请输入要插入的元素！");
+            }
+            queueCont.innerHTML = "队列内容：" + queue.join("->");
+        };
+        document.querySelector("#out-btn").onclick = function () {
+            if (queue.length) {
+                queue.pop();
+            } else {
+                alert("队列为空！");
+            }
+            queueCont.innerHTML = "队列内容：" + queue.join("->");
+        };
+        document.querySelector("#font-btn").onclick = function () {
+            var len = queue.length;
+            if (len) {
+                queueInput.value = "队头元素为：" + queue[len - 1];
+            } else {
+                queueInput.value = "队列为空！";
+            }
+        };
+        document.querySelector("#empty-btn").onclick = function () {
+            if (queue.length == 0) {
+                queueInput.value = "队列为空！";
+            } else {
+                queueInput.value = "队列不为空！";
+            }
+        };;
     </script>
 </body>
 
