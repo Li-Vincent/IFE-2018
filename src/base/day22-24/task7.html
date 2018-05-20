@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <script>    
+        var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+        var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+        var arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+        var arr4 = [
+            {
+                id: 1,
+                name: 'candy',
+                value: 40
+            }, {
+                id: 2,
+                name: 'Simon',
+                value: 50
+            }, {
+                id: 3,
+                name: 'Tony',
+                value: 45
+            }, {
+                id: 4,
+                name: 'Annie',
+                value: 60
+            }
+        ];
+
+        function sortArrByNumAsc(arr) {
+            arr.sort(function (x, y) {
+                return x - y;
+            });
+            console.log(arr);
+        }
+        function sortArrByNumDesc(arr) {
+            arr.sort(function (x, y) {
+                return y - x;
+            });
+            console.log(arr);
+        }
+
+        function sortArrByAlphaAsc(arr) {
+            arr.sort();
+            console.log(arr);
+        }
+
+        function sortArrByAlphaDesc(arr) {
+            arr.sort();
+            arr.reverse();
+            console.log(arr);
+        }
+
+        function sortArr2ByNumAsc(arr) {
+            arr.sort(function (x, y) {
+                return x[1] - y[1];
+            });
+            console.log(arr);
+        }
+
+        function sortArrByValueAsc(arr) {
+            arr.sort(by("value"));
+            console.log(arr);
+        }
+
+        //by函数接受一个成员名字符串做为参数
+        //并返回一个可以用来对包含该成员的对象数组进行排序的比较函数
+        var by = function (name) {
+            return function (o, p) {
+                var a, b;
+                if (typeof o === "object" && typeof p === "object" && o && p) {
+                    a = o[name];
+                    b = p[name];
+                    if (a === b) {
+                        return 0;
+                    }
+                    if (typeof a === typeof b) {
+                        return a < b ? -1 : 1;
+                    }
+                    return typeof a < typeof b ? -1 : 1;
+                }
+                else {
+                    throw ("error");
+                }
+            }
+        }
+
+        // TODO: To be Completed
+        function sortByAlpha(a, b) {
+            if (a === b) {
+                return 0;
+            }
+            if (typeof a === typeof b) {
+                return a < b ? -1 : 1;
+
+                for (var i = 0; i < a.length && i < b.length; i++) {
+                    if (a.charAt(i) == b.charAt(i)) {
+                        continue;
+                    }
+                    return b.charAt(i) - a.charAt(i);
+                }
+                if (a.length < b.length) {
+                    return b - a;
+                } else {
+                    return a - b;
+                }
+            }
+        }
+
+        // refer to : https://www.cnblogs.com/real-me/p/7103375.html
+        // refer to : http://www.jb51.net/article/67458.htm
+    </script>
+
+</body>
+
+</html>
