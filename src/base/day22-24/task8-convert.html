@@ -28,9 +28,21 @@
             }
         }
 
-        var scoreArray = [
-            ["Tony", 95, 79, 68],
-        ];
+        function scoreJsonToArray() {
+            var scoreArr = new Array();
+            for (var key in scoreObject) {
+                var tempArr = new Array();
+                tempArr.push(key);
+                var subObject = scoreObject[key];
+                for (var key2 in subObject) {
+                    tempArr.push(subObject[key]);
+                }
+                scoreArr.push(tempArr);
+            }
+            return scoreArr;
+        }
+
+        console.log(scoreJsonToArray());
 
         var menuArr = [
             [1, "Area1", -1],
@@ -43,6 +55,11 @@
             [8, "Area2-2-1", 6],
         ];
 
+
+        function menuArrToObject(){
+
+        }
+        
         var menuObject = {
             "1": {
                 name: "Area1",
