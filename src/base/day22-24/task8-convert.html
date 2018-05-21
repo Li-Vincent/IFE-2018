@@ -28,21 +28,21 @@
             }
         }
 
-        function scoreJsonToArray() {
+        function scoreObjToArr() {
             var scoreArr = new Array();
             for (var key in scoreObject) {
                 var tempArr = new Array();
                 tempArr.push(key);
-                var subObject = scoreObject[key];
-                for (var key2 in subObject) {
-                    tempArr.push(subObject[key]);
+                var subObj = scoreObject[key];
+                for (var key2 in subObj) {
+                    tempArr.push(subObj[key2]);
                 }
                 scoreArr.push(tempArr);
             }
             return scoreArr;
         }
 
-        console.log(scoreJsonToArray());
+        console.log(scoreObjToArr());
 
         var menuArr = [
             [1, "Area1", -1],
@@ -55,11 +55,54 @@
             [8, "Area2-2-1", 6],
         ];
 
+        var subArrToSubObj = menuArr.map(function (arr, i) {
+            return {
+                key: arr[0], obj: { name: arr[1], parentNum: arr[2] }
+            };
+        });
 
-        function menuArrToObject(){
+        console.log(subArrToSubObj);
 
+        function menuArrToObj() {
+            var menuObject = {};
+            var tempObjArr = subArrToSubObj;
+            var len = tempObjArr.length;
+            for (var i = len - 2; i >= 0; i--) {
+                for (var j = len - 1; j >= i; j--) {
+                    if (tempObjArr[i].key == tempObjArr[j].obj.parentNum) {
+                        if (tempObjArr[i].obj.subMenu) {
+                            tempObjArr[i].obj.subMenu = tempObjArr[j].obj;
+                        } else {
+                            tempObjArr[i].obj.subMenu = {};
+                            tempObjArr[i].obj.subMenu = tempObjArr[j].obj;
+                        }
+                    }
+                }
+            }
+            menuObject[tempObjArr[0].key] = tempObjArr[0].obj;
+            menuObject[tempObjArr[1].key] = tempObjArr[1].obj;
+            console.log(menuObject);
         }
-        
+
+        function changeObj() {
+            for (var i = mapped.length - 2; i >= 0; i--) {
+                for (var j = mapped.length - 1; j >= i; j--) {
+                    if (mapped[i].objName == mapped[j].parentNum) {
+                        if (mapped[i].obj["subMenu"]) {
+                            mapped[i].obj["subMenu"][mapped[j].objName] = mapped[j].obj;
+                        } else {
+                            mapped[i].obj["subMenu"] = {};
+                            mapped[i].obj["subMenu"][mapped[j].objName] = mapped[j].obj;
+                        }
+                    }
+                }
+            }
+
+            menuObject[mapped[0].objName] = mapped[0].obj;
+            menuObject[mapped[1].objName] = mapped[1].obj;
+            console.log(menuObject);
+        }
+
         var menuObject = {
             "1": {
                 name: "Area1",
