@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <h1>数组排序</h1>
+    <p>请按F12打开控制台</p>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
     <script>    
         var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
         var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
@@ -32,6 +37,21 @@
                 value: 60
             }
         ];
+        console.log("==============按数字从小到大排序=============");
+        sortArrByNumAsc(arr1);
+        console.log("==============按数字从大到小排序=============");
+        sortArrByNumDesc(arr1);
+        console.log("");
+        console.log("==============按字母顺序a-z排序==============");
+        sortArrByAlphaAsc(arr2);
+        console.log("==============按字母顺序z-a排序==============");
+        sortArrByAlphaDesc(arr2);
+        console.log("");
+        console.log("====按照每个元素中第二个数从大到小的顺序排序====");
+        sortArr2ByNumDesc(arr3);
+        console.log("");
+        console.log("=========按元素对象的value值从小到大==========");
+        sortArrByValueAsc(arr4);
 
         function sortArrByNumAsc(arr) {
             arr.sort(function (x, y) {
@@ -64,6 +84,13 @@
             console.log(arr);
         }
 
+        function sortArr2ByNumDesc(arr) {
+            arr.sort(function (x, y) {
+                return y[1] - x[1];
+            });
+            console.log(arr);
+        }
+
         function sortArrByValueAsc(arr) {
             arr.sort(by("value"));
             console.log(arr);
@@ -71,7 +98,7 @@
 
         //by函数接受一个成员名字符串做为参数
         //并返回一个可以用来对包含该成员的对象数组进行排序的比较函数
-        var by = function (name) {
+        function by(name) {
             return function (o, p) {
                 var a, b;
                 if (typeof o === "object" && typeof p === "object" && o && p) {
