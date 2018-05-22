@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - DIY Function</title>
+</head>
+
+<body>
+    <h1>DiyTrim and RemoveRepetition</h1>
+    <p>请按F12打开控制台</p>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
+    <script>
+        /*
+        实现一个字符串头尾去除空格的函数
+        注意需要去除的空格，包括全角、半角空格
+        暂时不需要学习和使用正则表达式的方式
+        */
+        function diyTrim(str) {
+            var result = "";
+
+            if (str == null) {
+                return "";
+            }
+
+            // 定义包含全半角空格的whitespace字符串
+            var whitespace = new String(" 　");
+            // 去掉左边的空格 
+            if (whitespace.indexOf(str.charAt(0)) != -1) {
+                var j = 0, i = str.length;
+                while (j < i && whitespace.indexOf(str.charAt(j)) != -1) {
+                    j++;
+                }
+                str = str.substring(j, i);
+            }
+
+            // 去掉右边的空格
+            if (whitespace.indexOf(str.charAt(str.length - 1)) != -1) {
+                i = str.length - 1;
+                while (i > 0 && whitespace.indexOf(str.charAt(i)) != -1) {
+                    i--;
+                }
+                str = str.substring(0, i + 1);
+            }
+            result = str;
+
+            // 使用正则
+            // result = str.replace(/(^\s*)|(\s*$)/g, "");
+
+            return result;
+        }
+
+        // 测试用例
+        console.log(diyTrim(' a f b    ')); // ->a f b
+        console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+        console.log(diyTrim('1    ')); // ->1
+        console.log(diyTrim('　　f')); // ->f
+        console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+        console.log(diyTrim(' ')); // ->
+        console.log(diyTrim('　')); // ->
+        console.log(diyTrim('')); // ->
+
+        /*
+        去掉字符串str中，连续重复的地方
+        */
+        function removeRepetition(str) {
+            var result = "";
+            var len = str.length;
+            if (str == null || str == "") {
+                return "";
+            } else if (len == 1) {
+                return str;
+            }
+            // 将字符串转换为数组，当连续两个字符相同，则将前面的字符变为空
+            var arr = str.split("");
+            var i, arrLen = arr.length;
+            for (i = 0; i < arrLen; i++) {
+                if (arr[i] == arr[i + 1]) {
+                    arr[i] = "";
+                }
+            }
+
+            // 将变化后的数组转为字符串
+            for (i = 0; i < arrLen; i++) {
+                result += arr[i];
+            }
+            return result;
+        }
+
+        // 测试用例
+        console.log(removeRepetition("aaa")); // ->a
+        console.log(removeRepetition("abbba")); // ->aba
+        console.log(removeRepetition("aabbaabb")); // ->abab
+        console.log(removeRepetition("")); // ->
+        console.log(removeRepetition("abc")); // ->abc
+    </script>
+</body>
+
+</html>

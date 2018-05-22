@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - 数组和对象的转换</title>
+</head>
+
+<body>
+    <h1>数组和对象的转换</h1>
+    <p>请按F12打开控制台</p>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
+    <script>
+        var scoreObject = {
+            "Tony": {
+                "Math": 95,
+                "English": 79,
+                "Music": 68
+            },
+            "Simon": {
+                "Math": 100,
+                "English": 95,
+                "Music": 98
+            },
+            "Annie": {
+                "Math": 54,
+                "English": 65,
+                "Music": 88
+            }
+        }
+
+        function scoreObjToArr() {
+            var scoreArr = new Array();
+            for (var key in scoreObject) {
+                var tempArr = new Array();
+                tempArr.push(key);
+                var subObj = scoreObject[key];
+                for (var key2 in subObj) {
+                    tempArr.push(subObj[key2]);
+                }
+                scoreArr.push(tempArr);
+            }
+            return scoreArr;
+        }
+
+
+
+        var menuArr = [
+            [1, "Area1", -1],
+            [2, "Area2", -1],
+            [3, "Area1-1", 1],
+            [4, "Area1-2", 1],
+            [5, "Area2-1", 2],
+            [6, "Area2-2", 2],
+            [7, "Area1-2-3", 4],
+            [8, "Area2-2-1", 6],
+        ];
+
+        // 先将二维数组，用 map() 转成 对象数组，
+        var subArrToSubObj = menuArr.map(function (arr, i) {
+            return { key: arr[0], obj: { name: arr[1] }, parentKey: arr[2] };
+        });
+
+        function menuArrToObj() {
+            var menuObject = {};
+            var tempObjArr = subArrToSubObj;
+            var len = tempObjArr.length;
+            // 比较不同子对象的key和parentKey，如果相等，则对subMenu进行赋值
+            for (var i = len - 2; i >= 0; i--) {
+                for (var j = len - 1; j >= i; j--) {
+                    if (tempObjArr[i].key == tempObjArr[j].parentKey) {
+                        // 如果 tempObjArr[i].obj 对象存在属性subMenu，
+                        // 则将对象tempObjArr[j].obj赋给tempObjArr[i].obj["subMenu"][tempObjArr[j].key]
+                        if (tempObjArr[i].obj["subMenu"]) {
+                            tempObjArr[i].obj["subMenu"][tempObjArr[j].key] = tempObjArr[j].obj;
+                        } else {
+                            // 如果 tempObjArr[i].obj 对象不存在属性subMenu，则创建后再赋值
+                            tempObjArr[i].obj["subMenu"] = {};
+                            tempObjArr[i].obj["subMenu"][tempObjArr[j].key] = tempObjArr[j].obj;
+                        }
+                    }
+                }
+            }
+            // 如果parentKey = -1则代表为根节点，将根节点赋给menuObject
+            for (var i in tempObjArr) {
+                if (tempObjArr[i].parentKey == -1) {
+                    menuObject[tempObjArr[i].key] = tempObjArr[i].obj;
+                }
+            }
+            return menuObject;
+        }
+        console.log("==========对象转数组==========")
+        console.log(scoreObjToArr());
+        console.log("");
+        console.log("==========数组转对象==========")
+        console.log(menuArrToObj());
+    </script>
+</body>
+
+</html>

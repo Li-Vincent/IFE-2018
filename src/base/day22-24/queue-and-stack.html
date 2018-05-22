@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Queue and Stack</title>
+</head>
+
+<body>
+    <script>
+        //创建一个数组来实现队列
+        var queue = new Array();
+        console.log("队列：" + queue);
+        //push: 向数组的末尾添加一个或多个元素，并返回新的长度。
+        console.log("==========入队操作==========");
+        queue.push("queue member1");
+        console.log("队列：" + queue);//----->队列：queue member1
+        queue.push("queue member2");
+        console.log("队列：" + queue);//----->队列：queue member2,queue member1
+        queue.push("queue member3");
+        console.log("队列：" + queue);//----->队列：queue member3,queue member2,queue member1
+        queue.push("queue member4");
+        console.log("队列：" + queue);//----->队列：queue member4,queue member3,queue member2,queue member1
+        console.log("==========出队，先进先出==========");
+        //shift: 把数组的第一个元素从其中删除，并返回第一个元素的值。 
+        console.log("出队成员：" + queue.shift());//----->出队成员：queue member1
+        console.log("队列：" + queue);//----->队列：queue member4,queue member3,queue member2
+        console.log("出队成员：" + queue.shift());//----->出队成员：queue member2
+        console.log("队列：" + queue);//----->队列：queue member4,queue member3
+        console.log("出队成员：" + queue.shift());//----->出队成员：queue member3
+        console.log("队列：" + queue);//----->队列：queue member4
+        console.log("出队成员：" + queue.shift());//----->出队成员：queue member4
+        console.log("队列：" + queue);//----->队列：
+
+        //创建一个数组来模拟堆栈
+        var stack = new Array();
+        console.log("堆栈：" + stack);//----->堆栈：
+        //push: 向数组的末尾添加一个或多个元素，并返回新的长度。
+        console.log("==========入栈操作==========");
+        stack.push("stack member1")
+        console.log("堆栈：" + stack);//----->堆栈：stack member1
+        stack.push("stack member2");
+        console.log("堆栈：" + stack);//----->堆栈：stack member1,stack member2
+        stack.push("stack member3");
+        console.log("堆栈：" + stack);//----->堆栈：stack member1,stack member2,stack member3
+        stack.push("stack member4");
+        console.log("堆栈：" + stack);//----->堆栈：stack member1,stack member2,stack member3,stack member4
+        console.log("==========出栈，后进先出==========");
+        //pop：从数组中把最后一个元素删除，并返回这个元素的值
+        console.log("出栈成员：" + stack.pop());//----->出栈成员：stack member4
+        console.log("堆栈：" + stack);//----->堆栈：stack member1,stack member2,stack member3
+        console.log("出栈成员：" + stack.pop());//----->出栈成员：stack member3
+        console.log("堆栈：" + stack);//----->堆栈：stack member1,stack member2
+        console.log("出栈成员：" + stack.pop());//----->出栈成员：stack member2
+        console.log("堆栈：" + stack);//----->堆栈：stack member1
+        console.log("出栈成员：" + stack.pop());//----->出栈成员：stack member1
+        console.log("堆栈：" + stack);//----->堆栈：
+    </script>
+</body>
+
+</html>

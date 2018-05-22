@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - 字符串类型</title>
+</head>
+
+<body>
+    <h1>字符串类型</h1>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
+    <div>
+        <label>String A:
+            <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>
+        <label>Num A：
+            <input id="num-a" type="number" value="0">
+        </label>
+        <label>Num B：
+            <input id="num-b" type="number" value="1">
+        </label>
+    </div>
+    <div>
+        <button onclick="getSelectStrLen()">获取当前选中输入的内容长度</button>
+        <button onclick="get3rdChar()">当前选中输入中的第3个字符</button>
+        <button onclick="concatStr()">把两个输入框的文字连接在一起输出（concat）</button>
+        <button onclick="bIndexOfA()">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button onclick="aLastIndexOfB()">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button onclick="sliceStr()">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button onclick="getSelectLines()">当前选中输入框的行数</button>
+        <button onclick="substrSelectStr()">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button onclick="toUpperCaseStr()">把所选输入框中的内容全部转为大写</button>
+        <button onclick="toLowerCaseStr()">把所选输入框中的内容全部转为小写</button>
+        <button onclick="trimSelect()">把所选输入框中内容的半角空格全部去除</button>
+        <button onclick="replaceStr()">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        var strA = document.querySelector("#str-a");
+        var strB = document.querySelector("#str-b");
+        var numA = document.querySelector("#num-a");
+        var numB = document.querySelector("#num-b");
+        var result = document.querySelector("#result");
+
+        // 获取当前选中输入的内容长度
+        function getSelectStrLen() {
+            result.innerHTML = "当前选中输入的内容长度为" + getSelectStr().length;
+        }
+
+        // 当前选中输入中的第3个字符
+        function get3rdChar() {
+            result.innerHTML = "当前选中输入中的第3个字符为" + getSelectStr().substring(2, 3);
+        }
+
+        // 把两个输入框的文字连接在一起输出（concat）
+        function concatStr() {
+            result.innerHTML = "拼接后的字符串为" + strA.value.concat(strB.value);
+        }
+
+        // 输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）
+        function bIndexOfA() {
+            result.innerHTML = "B在A中第一次出现的位置为" + (strA.value.indexOf(strB.value) + 1);
+        }
+
+        // 输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）
+        function aLastIndexOfB() {
+            result.innerHTML = "A在B中最后一次出现的位置为" + (strB.value.lastIndexOf(strA.value) + 1);
+        }
+
+        // 使用slice获取选中输入框内容的部分内容，参数为num-a及num-b
+        function sliceStr() {
+            result.innerHTML = getSelectStr().slice(numA.value, numB.value);
+        }
+
+        // 当前选中输入框的行数
+        function getSelectLines() {
+            var arr = getSelectStr().split("\n");
+            result.innerHTML = "当前选中输入框的行数" + arr.length;
+        }
+
+        // 使用substr获取选中输入框内容的子字符串，参数为num-a及num-b
+        function substrSelectStr() {
+            result.innerHTML = getSelectStr().substr(numA.value, numB.value);
+        }
+
+        // 把所选输入框中的内容全部转为大写
+        function toUpperCaseStr() {
+            result.innerHTML = getSelectStr().toUpperCase();
+        }
+
+        // 把所选输入框中的内容全部转为小写
+        function toLowerCaseStr() {
+            result.innerHTML = getSelectStr().toLowerCase();
+        }
+
+        // 把所选输入框中内容的半角空格全部去除
+        function trimSelect() {
+            result.innerHTML = getSelectStr().replace(/\s/g, '');
+        }
+
+        //把所选输入框中内容的a全部替换成另外一个输入框中的内容
+        function replaceStr() {
+            var radio = document.getElementsByName("str-obj");
+            var radioValue;
+            for (var i = 0, len = radio.length; i < len; i++) {
+                if (radio[i].checked) {
+                    radioValue = radio[i].value;
+                }
+            }
+            if (radioValue == "a") {
+                strA.value = strB.value;
+            }
+            if (radioValue == "b") {
+                strB.value = strA.value;
+            }
+        }
+
+        // 获取当前选中输入的字符串内容
+        function getSelectStr() {
+            var radio = document.getElementsByName("str-obj");
+            var radioValue;
+            for (var i = 0, len = radio.length; i < len; i++) {
+                if (radio[i].checked) {
+                    radioValue = radio[i].value;
+                }
+            }
+            if (radioValue == "a") {
+                return strA.value;
+            }
+            if (radioValue == "b") {
+                return strB.value;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
