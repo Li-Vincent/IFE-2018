@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - Clock</title>
+</head>
+
+<body>
+    <h1>简单的时钟</h1>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
+    <div id="show-time1"></div>
+    <div id="show-time2"></div>
+    <script>
+
+        // 根据某个日期返回这一天是星期几,language = zh or en
+        function getWeekDay(date, language) {
+
+            var weekdayZh = new Array(7);
+            weekdayZh[0] = "星期日";
+            weekdayZh[1] = "星期一";
+            weekdayZh[2] = "星期二";
+            weekdayZh[3] = "星期三";
+            weekdayZh[4] = "星期四";
+            weekdayZh[5] = "星期五";
+            weekdayZh[6] = "星期六";
+
+            var weekdayEn = new Array(7);
+            weekdayEn[0] = "Sunday";
+            weekdayEn[1] = "Monday";
+            weekdayEn[2] = "Tuesday";
+            weekdayEn[3] = "Wednesday";
+            weekdayEn[4] = "Thursday";
+            weekdayEn[5] = "Friday";
+            weekdayEn[6] = "Saturday";
+            if (language == "zh") {
+                return weekdayZh[date.getDay()];
+            }
+            if (language == "en") {
+                return weekdayEn[date.getDay()];
+            }
+        }
+
+        // 当i<10,在前面补0
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i }
+            return i
+        }
+
+        // 把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+        function formatTime(datetime) {
+            var time = new Array();
+            time['year'] = datetime.getFullYear();
+            time['month'] = checkTime(datetime.getMonth() + 1);
+            time['day'] = checkTime(datetime.getDate());
+            time['24h'] = checkTime(datetime.getHours());
+            time['m'] = checkTime(datetime.getMinutes());
+            time['s'] = checkTime(datetime.getSeconds());
+            time['12h'] = time['24h'];
+            time['ampm'] = "AM";
+            if (time['24h'] > 11) {
+                time['12h'] = time['24h'] - 12;
+                time['ampm'] = "PM";
+            }
+            return time;
+        }
+
+        function showTime1() {
+            var now = new Date();
+            var time = formatTime(now);
+            document.getElementById('show-time1').innerHTML = time['year'] + "年" + time['month'] + "月" + time['day'] + "日"
+                + " " + getWeekDay(now, "zh") + " " + time['24h'] + ":" + time['m'] + ":" + time['s'];
+            setTimeout('showTime1()', 500);
+        }
+
+        function showTime2() {
+            var now = new Date();
+            var time = formatTime(now);
+            document.getElementById('show-time2').innerHTML = time['year'] + "-" + time['month'] + "-" + time['day']
+                + " " + getWeekDay(now, "en") + " " + time['12h'] + ":" + time['m'] + ":" + time['s'] + " " + time["ampm"];
+            setTimeout('showTime2()', 500);
+        }
+
+        showTime1();
+        showTime2();
+    </script>
+</body>
+
+</html>
