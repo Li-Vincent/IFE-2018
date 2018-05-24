@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <h1>简单的时钟</h1>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
     <div id="show-time1"></div>
     <div id="show-time2"></div>
     <script>
@@ -56,6 +60,8 @@
             time['24h'] = checkTime(datetime.getHours());
             time['m'] = checkTime(datetime.getMinutes());
             time['s'] = checkTime(datetime.getSeconds());
+            time['12h'] = time['24h'];
+            time['ampm'] = "AM";
             if (time['24h'] > 11) {
                 time['12h'] = time['24h'] - 12;
                 time['ampm'] = "PM";

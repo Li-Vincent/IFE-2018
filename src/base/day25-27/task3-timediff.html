@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript - 计算时间差</title>
+</head>
+
+<body>
+    <h1>计算时间差</h1>
+    <p>
+        <a href="index.html">返回主页</a>
+    </p>
+    <select name="year" id="year-select"></select>年
+    <select name="month" id="month-select"></select>月
+    <select name="day" id="day-select"></select>日
+    <select name="" id="hour-select"></select>时
+    <select name="minite" id="minute-select"></select>分
+    <select name="second" id="second-select"></select>秒
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+    <script>
+
+
+        initOption();
+        if (document.attachEvent) {
+            document.querySelector("#year-select").attachEvent("onchange", changeDate);
+            document.querySelector("#month-select").attachEvent("onchange", changeDate);
+        }
+        else {
+            document.querySelector("#year-select").addEventListener('change', changeDate, false);
+            document.querySelector("#month-select").addEventListener('change', changeDate, false);
+        }
+        showTimeDiff();
+
+
+        function showTimeDiff() {
+            // 获取两个时间差的时间戳
+            var selectTime = getSelectedTime();
+            var s = new Date().getTime();
+            var e = selectTime.getTime();
+            var diff = e - s; //两个时间戳相差的毫秒数
+            var daysDiff = Math.floor(Math.abs(diff) / (24 * 60 * 60 * 1000));
+            var level1 = Math.floor(Math.abs(diff) % (24 * 60 * 60 * 1000)); //计算天数后剩余的毫秒数
+            var hoursDiff = Math.floor(level1 / (60 * 60 * 1000));
+            var level2 = level1 % (60 * 60 * 1000); //计算小时数后剩余的毫秒数
+            var minutesDiff = Math.floor(level2 / (60 * 1000));
+            var secondsDiff = Math.round(Math.floor(level2 % (60 * 1000)) / 1000);
+            if (diff >= 0) {
+                document.querySelector("#result-wrapper").innerHTML = "现在距离 " + selectTime.getFullYear() + "年"
+                    + checkTime(selectTime.getMonth() + 1) + "月" + checkTime(selectTime.getDate()) + " 日 " + getWeekday(selectTime)
+                    + " 还有 " + daysDiff + " 天 " + hoursDiff + " 小时 " + minutesDiff + " 分 " + secondsDiff + " 秒 ";
+            } else {
+                document.querySelector("#result-wrapper").innerHTML = "现在距离 " + selectTime.getFullYear() + "年"
+                    + checkTime(selectTime.getMonth() + 1) + "月" + checkTime(selectTime.getDate()) + " 日 " + getWeekday(selectTime)
+                    + " 已经过去 " + daysDiff + " 天 " + hoursDiff + " 小时 " + minutesDiff + " 分 " + secondsDiff + " 秒 ";
+            }
+            setTimeout(showTimeDiff, 500);
+        }
+
+        // 初始化时间选择列表
+        function initOption() {
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            // 默认显示前后20年
+            preOption("#year-select", nowYear - 20, nowYear + 20, nowYear);
+            // 注意，月份需要加1
+            var nowMonth = now.getMonth() + 1;
+            preOption("#month-select", 1, 12, nowMonth);
+            var nowDay = now.getDate();
+            preOption("#day-select", 1, getDays(nowYear, nowMonth), nowDay);
+            var nowHours = now.getHours();
+            preOption("#hour-select", 0, 23, nowHours);
+            var nowMinutes = now.getMinutes();
+            preOption("#minute-select", 0, 59, nowMinutes);
+            var nowSeconds = now.getSeconds();
+            preOption("#second-select", 0, 59, nowSeconds);
+        }
+
+        // 生成下拉菜单的option， 例： preOption("#year-select", 2000, 2040, 2018);
+        function preOption(id, start, end, selected) {
+            var select = document.querySelector(id);
+            select.innerHtml = "";
+            for (var i = start; i <= end; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerText = checkTime(i);
+                select.appendChild(option);
+            }
+            // 如果正确输入了默认选项，则设置，否则默认选中第一个
+            if (selected != undefined && selected >= start && selected <= end) {
+                select.selectedIndex = selected - start;
+            } else {
+                select.selectedIndex = 0;
+            }
+        }
+
+        // 获取当前选中的时间，返回日期格式
+        function getSelectedTime() {
+            var year = getSelectedValue("#year-select");
+            var month = getSelectedValue("#month-select");
+            var day = getSelectedValue("#day-select");
+            var hours = getSelectedValue("#hour-select");
+            var minutes = getSelectedValue("#minute-select");
+            var seconds = getSelectedValue("#second-select");
+            var timeString = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+            return new Date(timeString);
+        }
+
+        // 获取select下拉列表选中的value
+        function getSelectedValue(id) {
+            var obj = document.querySelector(id);
+            return obj.options[obj.selectedIndex].value; // 选中值
+        }
+
+        // 根据当前选中年月，动态改变 显示天数
+        function changeDate() {
+            var year = getSelectedValue("#year-select");
+            var month = getSelectedValue("#month-select");
+            var day = getSelectedValue("#day-select");
+            // 清楚day列表的option选项
+            document.querySelector("#day-select").options.length = 0;
+            // 重新生成day列表的option，并选中之前选中的值
+            preOption("#day-select", 1, getDays(year, month), day);
+        }
+
+        // 指定日期返回星期几  日期格式参数date
+        function getWeekday(date) {
+            var weekday = new Array(7);
+            weekday[0] = "星期日";
+            weekday[1] = "星期一";
+            weekday[2] = "星期二";
+            weekday[3] = "星期三";
+            weekday[4] = "星期四";
+            weekday[5] = "星期五";
+            weekday[6] = "星期六";
+            return weekday[date.getDay()];
+        }
+
+        // 根据年月计算出当月天数
+        function getDays(y, m) {
+            var days = 0;
+            // 注意将参数转成数字类型
+            y = Number(y);
+            m = Number(m);
+            switch (m) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    days = 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days = 30;
+                    break;
+                case 2:
+                    //判断是否为闰年
+                    days = (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) ? 29 : 28;
+                    break;
+                default:
+                    console.log(getDays, "参数错误");
+                    break;
+            }
+            return days;
+        }
+
+        // 当i<10,在前面补0
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i; }
+            return i;
+        }
+    </script>
+</body>
+
+</html>
