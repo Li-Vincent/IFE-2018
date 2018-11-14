@@ -1,0 +1,31 @@
+.layout {
+    height: 100%;
+    width: 100%;
+}
+
+#section6 {
+    box-sizing: border-box;
+    margin: 40px 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#section6 .contact-form {
+    max-width: 400px;
+    min-width: 300px;
+    padding: 50px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+#section6 .contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#section6 .contacts {
+    max-width: 400px;
+    min-width: 300px;
+    padding: 50px;
+}

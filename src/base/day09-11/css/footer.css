@@ -1,0 +1,44 @@
+.footer-wrap {
+    background: #333;
+    padding: 40px 200px;
+}
+
+.footer-wrap .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-wrap .items .item {
+    min-width: 200px;
+    flex: 1;
+}
+
+.footer-wrap .items .item h4 {
+    color: #fff;
+    font-weight: normal;
+}
+
+.footer-wrap .items .item p {
+    line-height: 40px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-wrap .items .item .intro p {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-wrap .contact a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-wrap .contact a i.iconfont {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

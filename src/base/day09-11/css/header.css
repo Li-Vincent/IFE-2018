@@ -1,0 +1,78 @@
+header {
+    background: url(../images/header.png) no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.6);
+    z-index: -1;
+}
+
+.header-wrap {
+    margin: 200px;
+    text-align: center;
+    color: #fff;
+}
+
+.header-wrap .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.header-wrap .intro h1 {
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.header-wrap .intro p {
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.header-wrap .account {
+    padding: 30px 100px 20px 100px;
+    text-align: center;
+}
+
+.header-wrap .account h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.header-wrap .account p {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.6)
+}
+
+.header-wrap .account .sign-up input {
+    width: 200px;
+    height: 40px;
+    margin-left: 20px;
+    padding-left: 10px;
+    background: inherit;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.header-wrap .account .sign-up button {
+    outline: none;
+    width: 125px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
