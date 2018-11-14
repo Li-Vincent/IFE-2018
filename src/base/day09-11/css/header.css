@@ -19,16 +19,19 @@ header::after {
 }
 
 .header-wrap {
-    margin: 200px;
-    text-align: center;
+    margin: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: #fff;
 }
 
 .header-wrap .intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    max-width: 990px;
+    padding: 50px 100px 20px;
+    text-align: center;
 }
 
 .header-wrap .intro h1 {
@@ -42,7 +45,9 @@ header::after {
 }
 
 .header-wrap .account {
-    padding: 30px 100px 20px 100px;
+    max-width: 990px;
+    border: 1px solid #666;
+    padding: 50px 100px;
     text-align: center;
 }
 
@@ -56,22 +61,28 @@ header::after {
     color: rgba(255, 255, 255, 0.6)
 }
 
+.header-wrap .account .sign-up {
+    margin-left: -30px;
+}
+
 .header-wrap .account .sign-up input {
-    width: 200px;
-    height: 40px;
-    margin-left: 20px;
+    width: 240px;
+    height: 50px;
+    margin-left: 30px;
     padding-left: 10px;
     background: inherit;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 2px;
+    margin-top: 20px;
 }
 
 .header-wrap .account .sign-up button {
     outline: none;
-    width: 125px;
-    height: 40px;
-    margin-left: 20px;
+    width: 120px;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
     background-color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 2px;
