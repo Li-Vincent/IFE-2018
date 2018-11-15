@@ -18,8 +18,8 @@ header::after {
     z-index: -1;
 }
 
-.header-wrap {
-    margin: 160px;
+header .container {
+    margin: 160px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,45 +27,45 @@ header::after {
     color: #fff;
 }
 
-.header-wrap .intro {
+header .container .intro {
     margin-bottom: 80px;
     max-width: 990px;
     padding: 50px 100px 20px;
     text-align: center;
 }
 
-.header-wrap .intro h1 {
+header .container .intro h1 {
     font-size: 4em;
     font-weight: normal;
 }
 
-.header-wrap .intro p {
+header .container .intro p {
     font-size: 1.4em;
     color: rgba(255, 255, 255, 0.7);
 }
 
-.header-wrap .account {
+header .container .account {
     max-width: 990px;
     border: 1px solid #666;
     padding: 50px 100px;
     text-align: center;
 }
 
-.header-wrap .account h3 {
+header .container .account h3 {
     font-size: 1.5em;
     font-weight: normal;
 }
 
-.header-wrap .account p {
+header .container .account p {
     font-size: 1.2em;
     color: rgba(255, 255, 255, 0.6)
 }
 
-.header-wrap .account .sign-up {
+header .container .account .sign-up {
     margin-left: -30px;
 }
 
-.header-wrap .account .sign-up input {
+header .container .account .sign-up input {
     width: 240px;
     height: 50px;
     margin-left: 30px;
@@ -77,7 +77,7 @@ header::after {
     margin-top: 20px;
 }
 
-.header-wrap .account .sign-up button {
+header .container .account .sign-up button {
     outline: none;
     width: 120px;
     height: 50px;
