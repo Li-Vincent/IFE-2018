@@ -1,0 +1,71 @@
+.nav {
+    flex-shrink: 0;
+    width: 80px;
+    height: 100%;
+    min-height: 900px;
+    background-color: #1d2530;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav .panel>ul {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+    width: 80px;
+}
+
+.nav .panel>ul>li {
+    margin: 10px auto;
+    padding: 0;
+}
+
+.nav .panel .icon {
+    background-image: url(../images/icon-app.png);
+    width: 80px;
+    height: 80px;
+}
+
+.nav .panel .icon_1 {
+    background-position: 0 0;
+}
+
+.nav .panel .icon_2 {
+    background-position: 0 -80px;
+}
+
+.nav .panel .icon_3 {
+    background-position: 0 -160px;
+}
+
+.nav .panel .icon_4 {
+    background-position: -80px 0;
+}
+
+.nav .manage ul {
+    overflow: hidden;
+    width: 46px;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.nav .manage ul>li {
+    float: left;
+}
+
+.nav .manage .icon {
+    display: inline-block;
+    background-image: url(../images/icon-other.png);
+    width: 18px;
+    height: 18px;
+}
+
+.nav .manage .icon_1 {
+    background-position: 0 0;
+    margin-right: 10px;
+}
+
+.nav .manage .icon_2 {
+    background-position: -37px 0;
+}

@@ -1,0 +1,131 @@
+.sidebar {
+    width: 250px;
+    height: 100%;
+    flex-shrink: 0;
+    background-color: #222c3c;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .main>div {
+    width: 190px;
+    margin: 30px auto;
+}
+
+.sidebar .main>div .head {
+    height: 20px;
+    color: #5b6779;
+    overflow: hidden;
+}
+
+.sidebar .main>div .head>span {
+    float: left;
+    color: #5b6779;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.sidebar .main>div .head .setting {
+    float: right;
+    height: 16px;
+    width: 16px;
+    background-image: url(../images/icon-other.png);
+    background-position: -37px 0;
+}
+
+ul.wrapper {
+    margin-top: 10px;
+    padding: 0;
+}
+
+ul.wrapper>li {
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+}
+
+ul.wrapper>li>a {
+    color: #b7c0cd;
+}
+
+.badges {
+    float: right;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 6px;
+    color: #fff;
+    border-radius: 12px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.badges-info {
+    background: #1991eb;
+}
+
+.badges-warn {
+    background: #cb270a;
+}
+
+.products, .dashboard {
+    border-top: 1px solid #3c4b63;
+    padding-top: 30px;
+}
+
+.products .icon {
+    display: inline-block;
+    background-image: url(../images/icon-menu.png);
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.icon-tutorials {
+    background-position: 0 -35px;
+}
+
+.icon-stocks {
+    background-position: 0 -70px;
+}
+
+.icon-infographics {
+    background-position: 0 -105px;
+}
+
+.goals {
+    width: 250px;
+    margin: 20px auto;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #fff;
+    width: 190px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress {
+    width: 190px;
+    margin: 0 auto;
+}
+
+.progress progress {
+    width: 190px;
+    height: 4px;
+    border-radius: 2px;
+}
+
+progress::-webkit-progress-bar {
+    border-radius: 2px;
+    background-color: rgba(101, 165, 255, 0.3);
+}
+
+progress::-webkit-progress-value {
+    border-radius: 2px;
+    background-color: #9F79EE;
+}

@@ -6,36 +6,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>复杂页面的实现</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css-flex/style.css">
+    <link rel="stylesheet" href="./css-flex/nav.css">
+    <link rel="stylesheet" href="./css-flex/sidebar.css">
+    <link rel="stylesheet" href="./css-flex/messages.css">
 </head>
 
 <body>
-    <nav>
-        <div class="tabs">
-            <ul>
-                <li>
-                    <a href="#">
-                        <div class="icon icon_1"></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="icon icon_2"></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="icon icon_3"></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="icon icon_4"></div>
-                    </a>
-                </li>
-            </ul>
+    <div class="layout">
+        <div class="nav">
+            <div class="panel">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_1"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_2"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_3"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_4"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="manage">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_1"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="icon icon_2"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </nav>
+        <div class="sidebar">
+            <div class="main">
+                <div class="menu">
+                    <div class="head">
+                        <span>MENU</span>
+                        <a href="#">
+                            <span class="setting"></span>
+                        </a>
+                    </div>
+                    <ul class="wrapper">
+                        <li class="item">
+                            <a href="#">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Sales</span>
+                                <span class="badges badges-info">54</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Your Staff</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Analytics &amp; Targeting</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>What’s New</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="products">
+                    <div class="head">
+                        <span>YOUR PRODUCTS</span>
+                        <a href="#">
+                            <span class="setting"></span>
+                        </a>
+                    </div>
+                    <ul class="wrapper">
+                        <li class="item">
+                            <a href="#">
+                                <span class="icon icon-books"></span>
+                                <span>Books</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span class="icon icon-tutorials"></span>
+                                <span>Tutorials</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span class="icon icon-stocks"></span>
+                                <span>Stocks</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span class="icon icon-infographics"></span>
+                                <span>Infographics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dashboard">
+                    <div class="head">
+                        <span>DASHBOARD</span>
+                        <a href="#">
+                            <span class="setting"></span>
+                        </a>
+                    </div>
+                    <ul class="wrapper">
+                        <li class="item">
+                            <a href="#">
+                                <span>Messages</span>
+                                <span class="badges badges-info">21</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Connections</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Integrations</span>
+                                <span class="badges badges-warn">!</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>Account Settings</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <span>App Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="goals">
+                <div class="progress-text">
+                    <span>Monthly Goals</span>
+                    <span>$580/$3200</span>
+                </div>
+                <div class="progress">
+                    <progress value="18" max="100"></progress>
+                </div>
+            </div>
+        </div>
+        <div class="messages">
+            <div class="header">
+                <h1>Messages</h1>
+                <div class="user">
+                    <div class="avatar">
+                        <div class="status status-online"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Jordan J.</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                    <div class="change">
+                        <a href="#">
+                            <img src="./images/icon-arrow.png   " alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
