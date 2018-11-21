@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css-flex/style.css">
     <link rel="stylesheet" href="./css-flex/nav.css">
     <link rel="stylesheet" href="./css-flex/sidebar.css">
-    <link rel="stylesheet" href="./css-flex/messages.css">
+    <link rel="stylesheet" href="./css-flex/main.css">
 </head>
 
 <body>
@@ -174,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div class="messages">
+        <div class="main">
             <div class="header">
                 <h1>Messages</h1>
                 <div class="user">
@@ -187,13 +187,54 @@
                     </div>
                     <div class="change">
                         <a href="#">
-                            <img src="./images/icon-arrow.png   " alt="">
+                            <img src="./images/icon-arrow.png" alt="">
                         </a>
                     </div>
                 </div>
             </div>
             <div class="content">
-                
+                <div class="contacts">
+                    <div class="search">
+                        <input type="text" id="search" placeholder="Search">
+                        <a href="#" title="搜索">
+                            <span class="icon-search"></span>
+                        </a>
+                    </div>
+                    <div class="contacts-list"></div>
+                </div>
+                <div class="messages">
+                    <div class="head">
+                        <div class="contact-name">
+                            <h2>Bessie Berry</h2>
+                            <span class="contact-status contact-status-online"></span>
+                        </div>
+                        <div class="control-panel">
+                            <div class="control-btns">
+                                <a href="#">
+                                    <span class="icon icon-delete"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="icon icon-upload"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="icon icon-add"></span>
+                                </a>
+                            </div>
+                            <div class="pages-num">
+                                <span>1 of 28</span>
+                            </div>
+                            <div class="pages-turn">
+                                <a href="#">
+                                    <span class="icon icon-left"></span>
+                                </a>
+                                <a href="">
+                                    <span class="icon icon-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-content"></div>
+                </div>
             </div>
         </div>
     </div>
