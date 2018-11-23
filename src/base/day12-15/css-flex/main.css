@@ -78,11 +78,13 @@
 
 .main .content {
     display: flex;
+    height: 100%;
 }
 
 .content .contacts {
     width: 400px;
     height: 100%;
+    border-right: 1px solid #e3e7eb;
 }
 
 .content .messages {
@@ -92,8 +94,7 @@
 
 .contacts .search {
     height: 70px;
-    border: 1px solid #e3e7eb;
-    margin: -1px 0;
+    border-bottom: 1px solid #e3e7eb;
 }
 
 .contacts .search input {
@@ -120,14 +121,44 @@
     background-position: 16px 0;
 }
 
+.contacts-list .contact {
+    border-bottom: 1px solid #e3e7eb;
+    padding: 20px;
+    padding-left: 30px;
+    width: 100%;
+}
+
+.contact .contact-info {
+    overflow: hidden;
+}
+
+.contact-info .avatar {
+    float: left;
+}
+
+.contact-info .info {
+    float: left;
+    margin-left: 20px;
+}
+
+.contact-info .reply-time {
+    float: right;
+}
+
+.contact .contact-msg {
+    display: flex;
+}
+
+.contact .contact-msg .msg-status {
+    display: block;
+}
+
 .messages .head {
     height: 70px;
-    border: 1px solid #e3e7eb;
-    margin: -1px;
-    margin-right: 0;
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
+    border-bottom: 1px solid #e3e7eb;
 }
 
 .messages .head .contact-name {
@@ -173,7 +204,7 @@
 .control-btns .icon {
     display: block;
     flex: 1;
-    width: 32px;
+    width: 34px;
     height: 32px;
 }
 
@@ -199,6 +230,7 @@
     border-left: 1px solid #ced0da;
     padding-left: 30px;
     margin-right: 30px;
+    font-size: 16px;
 }
 
 .pages-num span {
@@ -206,10 +238,26 @@
     line-height: 32px;
 }
 
-.page-turn {
+.pages-turn {
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     border: 1px solid #ced0da;
+}
+
+.pages-turn .icon-left {
+    display: block;
+    height: 32px;
+    width: 34px;
+    background: url(../images/arrow_left.png) no-repeat center center;
+    border-right: 1px solid #ced0da;
+}
+
+.pages-turn .icon-right {
+    display: block;
+    height: 32px;
+    width: 34px;
+    background: url(../images/arrow_right.png) no-repeat center center;
 }
