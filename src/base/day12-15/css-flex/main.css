@@ -390,6 +390,11 @@
     background-color: #d9dde3;
 }
 
+.message-content .message-list-time.new-message {
+    color: #2399f1;
+    background: #1991eb;
+}
+
 .message-content .message-list-time:after {
     content: attr(data-time);
     position: absolute;
@@ -457,10 +462,10 @@
 }
 
 .message-content .message-replybar {
+    margin: 20px 30px;
     display: flex;
-    width: 100%;
+    width: calc(100%-30px);
     height: 54px;
-    margin-top: 25px;
     border: 1px solid #dfe3e9;
     border-radius: 3px;
     box-sizing: border-box;
