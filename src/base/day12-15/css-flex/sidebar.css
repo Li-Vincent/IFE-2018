@@ -8,18 +8,18 @@
     justify-content: space-between;
 }
 
-.sidebar .main>div {
+.sidebar .panel>div {
     width: 190px;
     margin: 30px auto;
 }
 
-.sidebar .main>div .head {
+.sidebar .panel>div .head {
     height: 20px;
     color: #5b6779;
     overflow: hidden;
 }
 
-.sidebar .main>div .head>span {
+.sidebar .panel>div .head>span {
     float: left;
     color: #5b6779;
     font-size: 12px;
@@ -27,7 +27,7 @@
     line-height: 20px;
 }
 
-.sidebar .main>div .head .setting {
+.sidebar .panel>div .head .setting {
     float: right;
     height: 16px;
     width: 16px;
@@ -54,6 +54,7 @@ ul.wrapper>li>a {
     float: right;
     height: 24px;
     line-height: 24px;
+    font-size: 14px;
     margin-top: 6px;
     color: #fff;
     border-radius: 12px;
